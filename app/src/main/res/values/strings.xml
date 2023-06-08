@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TransferGenAI</string>
+    <string name="title_activity_transference_details">Transference details</string>
+</resources>
