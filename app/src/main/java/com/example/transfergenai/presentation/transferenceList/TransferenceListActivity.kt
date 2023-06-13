@@ -13,4 +13,10 @@ class TransferenceListActivity : AppCompatActivity() {
         binding = TransferenceListActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
+
+    //Create the function to get the data from TransferencesView.ModelgetTransferences(context) and set the adapter
+    //to the recycler view
+    private fun getTransferences() {
+
+    }
 }
