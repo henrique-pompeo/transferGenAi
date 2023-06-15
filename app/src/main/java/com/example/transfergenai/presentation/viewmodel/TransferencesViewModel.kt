@@ -1,14 +1,22 @@
 package com.example.transfergenai.presentation.viewmodel
 
 import android.content.Context
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.example.transfergenai.domain.model.TransferenceModel
 import org.json.JSONArray
 
 class TransferencesViewModel {
 
+    private val _transferencesLiveData = MutableLiveData<List<TransferenceModel>>()
+    val transferencesListLiveData: LiveData<List<TransferenceModel>> get() = _transferencesLiveData
+
+    private val _transferenceByIdLiveData = MutableLiveData<TransferenceModel?>()
+    val transferenceByIdLiveData: LiveData<TransferenceModel?> get() = _transferenceByIdLiveData
+
     //Implement the function to get the transferences from transfereces.json inside assets folder
     //and return a List<TransferenceModel>
-    fun getTransferences(context: Context): List<TransferenceModel> {
+    fun getTransferences(context: Context) {
         val transferences = context.assets.open(TRANSFERENCES_FILE).bufferedReader().use {
             it.readText()
         }
@@ -34,12 +42,12 @@ class TransferencesViewModel {
         }
 
         //Return the list
-        return transferenceList
+        _transferencesLiveData.value = transferenceList
     }
 
     //Based on getTransferences function, implement the function to get the transference by transactionId
     //and return a TransferenceModel
-    fun getTransferenceById(context: Context, transactionId: String): TransferenceModel? {
+    fun getTransferenceById(context: Context, transactionId: String) {
         val transferences = context.assets.open(TRANSFERENCES_FILE).bufferedReader().use {
             it.readText()
         }
@@ -65,7 +73,7 @@ class TransferencesViewModel {
         }
 
         //Return the list
-        return transferenceModel
+        _transferenceByIdLiveData.value = transferenceModel
     }
 
     companion object {
