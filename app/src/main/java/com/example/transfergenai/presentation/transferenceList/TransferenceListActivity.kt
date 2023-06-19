@@ -3,13 +3,21 @@ package com.example.transfergenai.presentation.transferenceList
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.transfergenai.databinding.TransferenceListActivityBinding
+import com.example.transfergenai.domain.mappers.TransferenceMapper
+import com.example.transfergenai.domain.model.TransferenceModel
+import com.example.transfergenai.presentation.transferenceDetails.TransferenceDetailsActivity
 import com.example.transfergenai.presentation.viewmodel.TransferencesViewModel
 
 class TransferenceListActivity : AppCompatActivity() {
 
     private lateinit var binding: TransferenceListActivityBinding
+
     private val viewModel: TransferencesViewModel by lazy {
         TransferencesViewModel()
+    }
+
+    private val mapper: TransferenceMapper by lazy {
+        TransferenceMapper()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,31 +32,33 @@ class TransferenceListActivity : AppCompatActivity() {
     private fun setupObservers() {
         with(viewModel) {
             transferencesListLiveData.observe(this@TransferenceListActivity) {
-                //Set the adapter to the recycler view
-            }
-            transferenceByIdLiveData.observe(this@TransferenceListActivity) {
-
+                updateList(it)
             }
         }
     }
 
-    //TODO -- TERMINAR DE FAZER O CONTEÚDO QUE MOSTRA A LISTAGEM (VIEWMODEL, VIEWHOLDER E ADAPTER FEITOS)
+    private fun getTransferences() {
+        //Call the viewModel function to get the transferences
+        viewModel.getTransferences(this)
+    }
 
     //Create a function to setup the recycler view adapter receiving a list of TransferenceModel as parameter
-    private fun updateList() {
+    private fun updateList(transferenceModelList: List<TransferenceModel>) {
         binding.transferenceList.apply {
             adapter = TransferenceListAdapter(
-                listOf(),
+                mapper.toList(transferenceModelList),
                 onItemClicked = { transactionId ->
-                    //Call the viewModel function to get the transference by id
+                    openTransferenceDetails(transactionId)
                 }
             )
         }
     }
 
-    //Create the function to get the data from TransferencesView.ModelgetTransferences(context) and set the adapter
-    //to the recycler view
-    private fun getTransferences() {
-
+    //Create a function in which will receive th transactionId and open transferenceDetailsActivity passing the transactionId as parameter
+    private fun openTransferenceDetails(transactionId: String) {
+        //Implement the intent to open transferenceDetailsActivity passing the transactionId as parameter
+        TransferenceDetailsActivity.getIntent(this, transactionId).also {
+            startActivity(it)
+        }
     }
 }
