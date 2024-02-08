@@ -6,13 +6,11 @@ to a details page where more information about the transfer can be found.
 
 ## Features
 
-```html
-
-<img src="docs/videos/transfer_gen_AI.gif" width="30%">
-<img src="docs/images/transference_list.png" width="30%">
-<img src="docs/images/transference_details.png" width="30%">
-
-```
+<p align="center" width="100%">
+    <img src="docs/videos/transfer_gen_AI.gif" width="33%">
+    <img src="docs/images/transference_list.png" width="33%">
+    <img src="docs/images/transference_details.png" width="33%">
+</p>
 
 - **List of Transfers**: The application displays a list of transfers. Each item in the list 
 represents a single transfer with basic information such as sender name and transfer amount.
