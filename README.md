@@ -6,9 +6,13 @@ to a details page where more information about the transfer can be found.
 
 ## Features
 
-![TransferGenAI](docs/videos/transfer_gen_AI.gif)
-![Transference List](docs/images/transference_list.png)
-![Transference Details](docs/images/transference_details.png)
+```html
+
+<img src="docs/videos/transfer_gen_AI.gif" width="30%">
+<img src="docs/images/transference_list.png" width="30%">
+<img src="docs/images/transference_details.png" width="30%">
+
+```
 
 - **List of Transfers**: The application displays a list of transfers. Each item in the list 
 represents a single transfer with basic information such as sender name and transfer amount.
@@ -23,9 +27,9 @@ completion tool. GitHub Copilot was able to generate code based on the prompts p
 scope of the application. This significantly sped up the development process and allowed for more 
 focus on the design and functionality of the application.
 
-![Development Video 1](docs/videos/transfer_gen_AI_1.gif)<br>
-![Development Video 2](docs/videos/transfer_gen_AI_2.gif)<br>
-![Development Video 3](docs/videos/transfer_gen_AI_3.gif)<br>
+![Development Video 1](docs/videos/transfer_gen_AI_1.gif)<br><br>
+![Development Video 2](docs/videos/transfer_gen_AI_2.gif)<br><br>
+![Development Video 3](docs/videos/transfer_gen_AI_3.gif)<br><br>
 ![Development Video 4](docs/videos/transfer_gen_AI_4.gif)
 
 The application follows the Model-View-ViewModel (MVVM) architectural pattern, which separates the 
