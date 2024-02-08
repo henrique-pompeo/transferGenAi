@@ -7,9 +7,9 @@ to a details page where more information about the transfer can be found.
 ## Features
 
 <p align="center" width="100%">
-    <img src="docs/videos/transfer_gen_AI.gif" width="33%">
-    <img src="docs/images/transference_list.png" width="33%">
-    <img src="docs/images/transference_details.png" width="33%">
+    <img src="docs/videos/transfer_gen_AI.gif" width="25%">
+    <img src="docs/images/transference_list.png" width="25%">
+    <img src="docs/images/transference_details.png" width="25%">
 </p>
 
 - **List of Transfers**: The application displays a list of transfers. Each item in the list 
